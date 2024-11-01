@@ -6,4 +6,4 @@ metadata:
 spec: 
   containers:
   - name: debug
-    image: vasavi99/debug:v1
+    image: joindevops/debug:v1
