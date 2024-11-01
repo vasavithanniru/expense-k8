@@ -11,7 +11,8 @@ kind: Deployment
 metadata:
   name: backend
   namespace: expense
-  labels:   # these are replicaset labels
+  labels:   
+    # these are replicaset labels
     app: backend
     tier: api
     project: expense
