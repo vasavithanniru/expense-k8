@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  namesoace: expense
+  namespace: expense
   labels:   # these are replicaset labels
     app: mysql
     tier: db
