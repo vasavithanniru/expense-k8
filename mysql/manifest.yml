@@ -1,46 +1,43 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
   namespace: expense
-  labels:   # these are replicaset labels
+  labels:
     app: mysql
     tier: db
     project: expense
 spec:
-  # modify replicas according to your case
   replicas: 2
   selector:
-    # these are used to select the pod to create replicas
     matchLabels:
-      tier: db
       app: mysql
+      tier: db
       project: expense
-  # this is pod definition    
   template:
     metadata:
-      # these labels belongs to pod    
       labels:
-        tier: db
         app: mysql
+        tier: db
         project: expense
     spec:
       containers:
       - name: mysql
         image: joindevops/mysql:v1
 ---
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
   name: mysql
   namespace: expense
 spec:
   selector:
-    tier: db
     app: mysql
+    tier: db
     project: expense
   ports:
-  - name: mysql-svc-port
+  - name: mysql-port
     protocol: TCP
-    port: 3360  # service port
-    targetPort: 3360  # container port
+    port: 3306 # service port
+    targetPort: 3306 # container port
